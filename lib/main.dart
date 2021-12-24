@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'quiz_brain.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -67,7 +68,24 @@ class _QuizBodyState extends State<QuizBody> {
     if (i < questionsList.length - 1) {
       i++;
     } else {
+      Alert(
+        context: context,
+        title: "Game Over",
+        desc: "Thank you for using my app.",
+        buttons: [
+          DialogButton(
+            child: const Text(
+              "Replay",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () => Navigator.pop(context),
+            width: 120,
+          )
+        ],
+      ).show();
+
       i = 0;
+      scoreList = [];
     }
   }
 
