@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'quiz_brain.dart';
+
+QuizBrain quizBrain = QuizBrain();
 
 void main() {
   runApp(const MyApp());
@@ -45,11 +48,7 @@ class _QuizBodyState extends State<QuizBody> {
     );
   }
 
-  List questionsList = [
-    ['You can lead a cow down stairs but not up stairs.', false],
-    ['Approximately one quarter of human bones are in the feet.', true],
-    ['A slug\'s blood is green.', true],
-  ];
+  List questionsList = quizBrain.questionsList;
 
   List<Widget> scoreList = [];
 
